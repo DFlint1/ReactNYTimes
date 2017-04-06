@@ -9,7 +9,7 @@ var Article_row = React.createClass({
 		}
 	},
 	render: function(){
-		var arrayOfNames = ['adam','joe','jack'];
+		var arrayOfNames = ['mary','mack','jack'];
 		console.log(this.props.article_data);
 		console.log(typeof(this.props.article_data)); 
 		if(typeof(this.props.article_data) === String){

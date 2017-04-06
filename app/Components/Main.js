@@ -61,8 +61,6 @@ class Main extends React.Component{
 						})		
 					}
 
-				// This code is necessary to bind the keyword "this" when we say this.setState 
-				// to actually mean the component itself and not the runQuery function.
 				})		
 		}
 	}
@@ -76,7 +74,7 @@ class Main extends React.Component{
 
 					<div className="jumbotron">
 						<h1 className="text-center">Let's React to NYTimes!</h1>
-						<p className="text-center"><em>Search for and annotate articles of interest!</em></p>
+						<p className="text-center"><em>Search for articles and make notes!</em></p>
 					</div>
 
 					<div className="col-md-12">

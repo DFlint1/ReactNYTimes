@@ -43,16 +43,12 @@ class Form extends React.Component{
 						<form>
 							<div className="form-group">
 								<h4 className=""><strong>Search for?</strong></h4>
-
-								{/*Note how each of the form elements has an id that matches the state. This is not necessary but it is convenient.
-									Also note how each has an onChange event associated with our handleChange event. 
-								*/}
 								<input type="text" className="form-control text-center" id="term" onChange= {this.handleChange} required/>
 								<br />
-								<h4 className=""><strong>From ( type as 20160101 to search from Jan 1 2016 )</strong></h4>
+								<h4 className=""><strong>From ( For dates April 1 2017 is 20170401)</strong></h4>
 								<input type="text" className="form-control text-center" id="startDate" onChange= {this.handleChange} required/>
 								<br />
-								<h4 className=""><strong>To ( same as above, must be after start date )</strong></h4>
+								<h4 className=""><strong>To ( same as above, must be after "From" date )</strong></h4>
 								<input type="text" className="form-control text-center" id="endDate" onChange= {this.handleChange} required/>
 								<br />
 								<button type="button" className="btn btn-primary" onClick={this.handleClick}>Submit</button>
