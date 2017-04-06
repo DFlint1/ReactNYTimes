@@ -11,7 +11,7 @@ var reactRouter = require('react-router');
 var nytreact = require('./models/nytreact.js');
 // Create Instance of Express
 var app = express();
-var PORT = process.env.PORT || 3000; // Sets an initial port. We'll use this later in our listener
+var PORT = process.env.PORT || 3000; // Sets an initial port. 
 
 
 //Bodyparser
@@ -26,18 +26,28 @@ app.use(express.static('./public'));
 // -------------------------------------------------
 
 // MongoDB Configuration configuration (Change this URL to your own DB)
-mongoose.connect("mongodb://admin:codingrocks@ds023664.mlab.com:23664/nytreact");
-var db = mongoose.connection;
+mongoose.connect("mongodb://heroku_18zvj3gx:gpmenibb095tud1ecjk7ihok1h@ds155080.mlab.com:55080/heroku_18zvj3gx");
+var db = process.env.MONGODB_URI || "mongodb://localhost/nytreact";
 
-db.on('error', function (err) {
-  console.log('Mongoose Error: ', err);
+// db.on('error', function (err) {
+//   console.log('Mongoose Error: ', err);
+// });
+
+// db.once('open', function () {
+//   console.log('Mongoose connection successful.');
+// });
+
+// Connect mongoose to our database
+mongoose.connect(db, function(error) {
+  // Log any errors connecting with mongoose
+  if (error) {
+    console.log(error);
+  }
+  // Or log a success message
+  else {
+    console.log("mongoose connection is successful");
+  }
 });
-
-db.once('open', function () {
-  console.log('Mongoose connection successful.');
-});
-
-
 // -------------------------------------------------
 
 // Main Route. This route will redirect to our rendered React application

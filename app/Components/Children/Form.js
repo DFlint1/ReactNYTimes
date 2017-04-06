@@ -42,7 +42,7 @@ class Form extends React.Component{
 
 						<form>
 							<div className="form-group">
-								<h4 className=""><strong>Search for?</strong></h4>
+								<h4 className=""><strong>Topic</strong></h4>
 								<input type="text" className="form-control text-center" id="term" onChange= {this.handleChange} required/>
 								<br />
 								<h4 className=""><strong>From ( For dates April 1 2017 is 20170401)</strong></h4>
