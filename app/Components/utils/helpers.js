@@ -1,5 +1,5 @@
 // Include the axios package for performing HTTP requests (promise based alternative to request)
-var axios = require("axios");
+import axios from "axios";
 
 
 var key = "aa934bf536894bf8a6ef44e2b1265ae8";

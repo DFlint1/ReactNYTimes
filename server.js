@@ -26,8 +26,22 @@ app.use(express.static('./public'));
 // -------------------------------------------------
 
 // MongoDB Configuration configuration (Change this URL to your own DB)
-mongoose.connect("mongodb://heroku_18zvj3gx:gpmenibb095tud1ecjk7ihok1h@ds155080.mlab.com:55080/heroku_18zvj3gx");
-var db = process.env.MONGODB_URI || "mongodb://localhost/nytreact";
+// mongoose.connect('mongodb://heroku_18zvj3gx:gpmenibb095tud1ecjk7ihok1h@ds155080.mlab.com:55080/heroku_18zvj3gx');
+//=====================erase this later
+// mongoose.connect("mongodb://localhost/nytreact");
+mongoose.connect('mongodb://localhost/3000/nytreact');
+var db = mongoose.connection;
+
+db.on("error", function(err) {
+  console.log("Mongoose Error: ", err);
+});
+
+db.once("open", function() {
+  console.log("Mongoose connection successful.");
+});
+//========================erase above & uncomment below
+
+// var db = process.env.MONGODB_URI || "mongodb://localhost/nytreact";
 
 // db.on('error', function (err) {
 //   console.log('Mongoose Error: ', err);
@@ -38,16 +52,16 @@ var db = process.env.MONGODB_URI || "mongodb://localhost/nytreact";
 // });
 
 // Connect mongoose to our database
-mongoose.connect(db, function(error) {
-  // Log any errors connecting with mongoose
-  if (error) {
-    console.log(error);
-  }
-  // Or log a success message
-  else {
-    console.log("mongoose connection is successful");
-  }
-});
+// mongoose.connect(db, function(error) {
+//   // Log any errors connecting with mongoose
+//   if (error) {
+//     console.log(error);
+//   }
+//   // Or log a success message
+//   else {
+//     console.log("mongoose connection is successful");
+//   }
+// });
 // -------------------------------------------------
 
 // Main Route. This route will redirect to our rendered React application
